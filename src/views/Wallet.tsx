@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components'
-import { Button, ButtonGroup } from "@chakra-ui/react"
+import ButtonT from '../components/ButtonT'
+import Assets from '../components/Assets'
+import { ButtonGroup, Heading, Text } from "@chakra-ui/react"
+import { CopyIcon, StarIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faCopy, faCreditCard, faPaperPlane, faRetweet, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faCreditCard, faPaperPlane, faRetweet, faUser } from '@fortawesome/free-solid-svg-icons'
 import { useHistory } from 'react-router-dom'
 
 const Wallet: React.FC = () => {
@@ -14,28 +17,42 @@ const Wallet: React.FC = () => {
   return (
     <Wrapper>
       <TopBar>
-        <Network><FontAwesomeIcon icon={faCircle} style={{color:'#1273ea', fontSize:'0.6rem'}}/>&nbsp;&nbsp;&nbsp;Ronin Network</Network>
-        <LinkIcon icon={faUser} style={{color:'#1273ea'}}/>
-        {/* <FontAwesomeIcon icon={faCoffee} /> */}
+        <SecondaryButton>
+          <FontAwesomeIcon icon={faCircle} style={{color:'#1273ea', fontSize:'0.5rem'}}/>
+          &nbsp;&nbsp;&nbsp;
+          <Heading as="h6" size="xs" style={{color:'#345',fontSize:'0.8rem'}}>Ronin Network</Heading>
+        </SecondaryButton>
+        <SecondaryButton>
+          <FontAwesomeIcon icon={faUser} style={{color:'#2287ec'}}/>  
+        </SecondaryButton>
       </TopBar>
       <WSummary>
         <WHeader>
           <Flex>
-            <h5>My Wallet</h5>
-            <div style={{color:'#8dc9f9', fontSize:'0.85rem'}}>(7300 3777 3888 3334)</div>
-            <LinkIcon icon={faCopy} />
+            <Flex>
+              <Heading as="h6" size="xs">My Wallet</Heading>&nbsp;&nbsp;
+              <Text style={{color:'#8dc9f9', fontSize:'0.9rem'}}>(7300 3777 3888 3334)</Text>
+            </Flex>
+            <CopyIcon />
           </Flex>
         </WHeader>
-        <h2 className="ronin-header">1,000 USD</h2>
-        <h4>23,046,000 VND</h4>
+        <WBody>
+          <FlexCol>
+            <Heading as="h2" size="xl">1,000 USD</Heading>
+            <Heading as="h5" size="sm" style={{color:'#8dc9f9', marginTop:'10px'}}>23,046,000 VND</Heading>
+          </FlexCol>
+          <StarIcon w={8} h={8} />
+        </WBody>
       </WSummary>
       <Action>
-        <Button label="Deposit" faIcon={faCreditCard} onClick={navigateToDeposit}/>
-        <Button label="Send" faIcon={faPaperPlane} onClick={navigateToSend}/>
-        <Button label="Swap" faIcon={faRetweet} onClick={navigateToSwap} disabled/>
+        <ButtonT label="Deposit" faIcon={faCreditCard} onClick={navigateToDeposit}/>
+        <ButtonT label="Send" faIcon={faPaperPlane} onClick={navigateToSend}/>
+        <ButtonT label="Swap" faIcon={faRetweet} onClick={navigateToSwap} disabled/>
       </Action>
-      <h3 className="ronin-header">Assets</h3>
-      {/* <Assets /> */}
+      <AssetsContainer>
+        <Heading as="h5" size="sm" style={{marginTop:'10px'}}>Assets</Heading>
+        <Assets />
+      </AssetsContainer>
     </Wrapper>
   )
 }
@@ -45,13 +62,16 @@ export default Wallet
 const MainContainer = styled.div`
   position: relative;
   display: flex;
-  /* margin-left: auto; */
-  /* margin-right: auto; */
 `;
 
 const Wrapper = styled(MainContainer)`
   flex-direction: column;
   padding: 0 20px;
+`;
+
+const AssetsContainer = styled(MainContainer)`
+  flex-direction: column;
+  /* margin-top: 10px; */
 `;
 
 const TopBar = styled(MainContainer)`
@@ -61,7 +81,7 @@ const TopBar = styled(MainContainer)`
 
 const WSummary = styled(MainContainer)`
   flex-direction: column;
-  padding: 20px;
+  padding: 15px 20px 20px;
   background-image: linear-gradient(to right, #1273ea, #1c94f4);
   color: #fff;
   border-radius: 1rem;
@@ -72,11 +92,12 @@ const WSummary = styled(MainContainer)`
   `;
 
 const WHeader = styled.div`
+  cursor: pointer;
   &:after {
     position: absolute;
     content: '';
     display: block;
-    background: #8dc9f9;
+    background: #8dc9f966;
     width: calc(100% - 40px);
     height: 1px;
     margin: 10px 0;
@@ -84,31 +105,36 @@ const WHeader = styled.div`
 `;
 
 const Flex = styled(MainContainer)`
-  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+`;
+
+const WBody = styled(Flex)`
+  align-items: flex-end;
+  padding: 20px 0 0;
+`;
+
+const FlexCol = styled(MainContainer)`
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 `;
 
 const Action = styled(ButtonGroup)`
-  padding: 20px;
+  padding: 20px 0 0;
   /* justify-content: center; */
   margin-left: auto;
   margin-right: auto;
 `;
 
-const Network = styled.h5`
-  padding: 10px;
+const SecondaryButton = styled(MainContainer)`
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 5px 12px;
   border-radius: 6px;
   cursor: pointer;
   background-color: #f7f9fc;
-  &:hover {
-    background-color: #edf1f7;
-  }
-`;
-
-const LinkIcon = styled(FontAwesomeIcon)`
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
   &:hover {
     background-color: #edf1f7;
   }

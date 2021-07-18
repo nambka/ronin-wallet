@@ -2,13 +2,17 @@ import React from 'react'
 import { Heading, Text, Image } from "@chakra-ui/react"
 import styled from 'styled-components'
 
-const Token: React.FC = () => {
+type Props = {
+  onClick?: () => void;
+};
+
+const Token = ({onClick}: Props) => {
   let tokenList = [
     {ticker: 'EUR', native: '50 EUR', local: '1,531,972 VND', icon: 'images/eur.png'},
     {ticker: 'YEN', native: '1,000 YEN', local: '210,331 VND', icon: 'images/yen.png'},
     {ticker: 'VND', native: '10,000 VND', local: '10,000 VND', icon: 'images/vnd.png'}]
   let tokenToDisplay = tokenList.map((token) =>
-    <TokenWrapper key={Math.random().toString(36).substr(2, 9)}>
+    <TokenWrapper key={Math.random().toString(36).substr(2, 9)} onClick={onClick} >
       <TokenIcon>
         <Image boxSize="24px" src={token.icon} alt={token.ticker} />
       </TokenIcon>

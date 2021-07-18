@@ -20,7 +20,7 @@ const Wallet: React.FC = () => {
         <SecondaryButton>
           <FontAwesomeIcon icon={faCircle} style={{color:'#1273ea', fontSize:'0.5rem'}}/>
           &nbsp;&nbsp;&nbsp;
-          <Heading as="h6" size="xs" style={{color:'#345',fontSize:'0.8rem'}}>Ronin Network</Heading>
+          <Heading as="h6" size="xs" style={{color:'#123',fontSize:'0.8rem'}}>Ronin Network</Heading>
         </SecondaryButton>
         <SecondaryButton>
           <FontAwesomeIcon icon={faUser} style={{color:'#2287ec'}}/>  

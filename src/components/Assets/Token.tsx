@@ -18,7 +18,7 @@ const Token = ({onClick}: Props) => {
       </TokenIcon>
       <TokenValues>
         <Heading as="h6" size="xs" style={{color:'#345', marginBottom:'4px'}}>{token.native}</Heading>
-        <Text style={{color:'#89a', fontSize:'0.8rem'}}>{token.local}</Text>
+        <Text fontSize="xs" style={{color:'#89a', fontSize:'0.8rem'}}>{token.local}</Text>
       </TokenValues>
     </TokenWrapper>
   );

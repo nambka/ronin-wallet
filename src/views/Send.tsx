@@ -67,7 +67,7 @@ const Send: React.FC = () => {
                   children={
                     <TokenWrapper>
                       <Image boxSize="20px" src="images/eur.png" alt="images/eur.png" />
-                      <Text fontSize="sm" style={{color:'#345', paddingLeft:'10px'}}>EUR</Text>
+                      <Text fontSize="sm" style={{color:'#123', paddingLeft:'10px'}}>EUR</Text>
                     </TokenWrapper>
                   }
                 />
@@ -90,7 +90,7 @@ const Send: React.FC = () => {
               <Input type="number"/>
               <InputRightElement width="4.5rem" >
                 <ButtonUI h="1.5rem" size="sm" onClick={() => void 0}>
-                  <Text fontSize="xs">MAX</Text>
+                  <Text fontSize="xs" style={{color:'#456'}}>MAX</Text>
                   {/* {max ? "" : "MAX"} */}
                 </ButtonUI>
               </InputRightElement>
@@ -120,11 +120,11 @@ const Send: React.FC = () => {
       <Modal closeOnOverlayClick={false} isOpen={isOpenAlert} size="xs" onClose={onCloseAlert}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Successfully sent</ModalHeader>
-          <ModalBody>
-            <Text>2,000 <b>EUR</b></Text>
-            <Text>Thank you for using our service!</Text>
-          </ModalBody>
+          <AlertHdr>Successfully sent</AlertHdr>
+          <AlertBody>
+            <Text fontSize="xl">2,000 <b>EUR</b></Text>
+            <Text fontSize="sm">Thank you for using our service!</Text>
+          </AlertBody>
 
           <ModalFooter>
             <Button width="100%" onClick={navigateToWallet}>OK</Button>
@@ -177,7 +177,7 @@ const LabelInfo = styled(MainContainer)`
   justify-content: space-between;
   font-size: 0.65rem!important;
   font-weight: 700;
-  color: #456;
+  color: #123;
   text-transform: uppercase;
 `;
 
@@ -187,7 +187,6 @@ const LabelLeft = styled(LabelInfo)`
 
 const LabelRight = styled(LabelInfo)`
   margin-right: 10px;
-  color: #000;
 `;
 
 const ModalHdr = styled(ModalHeader)`
@@ -204,6 +203,21 @@ const ModalHdr = styled(ModalHeader)`
     height: 1px;
     margin: 35px 0;
   }
+`;
+
+const AlertHdr = styled(ModalHeader)`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+`;
+
+const AlertBody = styled(ModalBody)`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const TokenWrapper = styled(MainContainer)`

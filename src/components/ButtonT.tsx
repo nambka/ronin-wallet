@@ -31,7 +31,7 @@ const Icon = styled(FontAwesomeIcon)`
 
 const Label = styled.div`
   margin-top: 5px;
-  color: #345;
+  color: #123;
   font-size: 0.8rem;
   font-weight: 600;
 `;

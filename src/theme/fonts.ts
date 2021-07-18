@@ -1,5 +1,5 @@
 const fonts = {
-  heading: 'Montserrat, -apple-system, sans-serif',
+  // heading: 'Montserrat, -apple-system, sans-serif',
 }
 
 export default fonts

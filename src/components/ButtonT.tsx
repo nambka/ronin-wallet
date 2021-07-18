@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Heading } from "@chakra-ui/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
@@ -16,7 +15,6 @@ const ButtonT = ({label, faIcon, onClick, disabled, children}: Props) => (
   <StyledButton onClick={onClick} >
       {children}
       <Icon icon={faIcon} />
-      {/* <Heading as="h6" size="xs" style={{color:'#000', fontSize:'0.8rem'}}>{label}</Heading> */}
       <Label>{label}</Label>
   </StyledButton>
 )
@@ -44,7 +42,6 @@ const StyledButton = styled.div`
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  /* padding: 10px; */
   width: 60px;
   height: 75px;
   color: #2287ec;

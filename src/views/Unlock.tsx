@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Text, InputGroup, Input, InputRightElement, Image, FormControl } from "@chakra-ui/react"
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import Button from '../components/Button'
 import styled from 'styled-components'
 import walletLogo from '../assets/images/logo.png'
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const Unlock: React.FC = () => {
   const history = useHistory();

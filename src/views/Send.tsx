@@ -1,7 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Button from '../components/Button'
-import Assets from '../components/Assets'
 import Token from '../components/Assets/Token'
 import { Button as ButtonUI, Image, useDisclosure } from "@chakra-ui/react"
 import { 
@@ -13,8 +12,6 @@ import {
   InputLeftElement,
   InputRightElement, 
   FormControl,
-  FormLabel,
-  FormHelperText,
   Modal,
   ModalOverlay,
   ModalContent,

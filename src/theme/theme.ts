@@ -6,7 +6,7 @@ import fonts from './fonts'
 import components from './components'
 
 const theme = extendTheme({
-  initialColorMode: <ColorMode>'light',
+  initialColorMode: 'light' as ColorMode,
   useSystemColorMode: false,
   styles,
   colors,

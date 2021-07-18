@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import PageLoader from './components/PageLoader'
 import styled from 'styled-components'
 import { ChakraProvider } from "@chakra-ui/react"
-import GlobalStyle from './styles/Global'
+import theme from './theme/theme'
 
 // Route-based code splitting
 const Unlock = lazy(() => import('./views/Unlock'))
@@ -15,8 +15,7 @@ const NotFound = lazy(() => import('./views/NotFound'))
 const App: React.FC = () => {
   return (
     <Router>
-      <ChakraProvider>
-        <GlobalStyle />
+      <ChakraProvider theme={theme}>
         <Suspense fallback={<PageLoader />}>
           <Box>
             <Switch>

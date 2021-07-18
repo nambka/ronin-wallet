@@ -1,0 +1,101 @@
+const Button = {
+  baseStyle: {
+    _focus: {
+      boxShadow: '0',
+      outline: 'none',
+    },
+  },
+  variants: {
+    primary: {
+      bg: 'primary',
+      color: 'lightblue.100',
+    },
+    'primary-outline': {
+      bg: 'transparent',
+      border: '1px',
+      borderStyle: 'solid',
+      borderColor: 'primary',
+      color: 'primary',
+      _hover: {
+        backgroundColor: 'primary',
+        color: 'lightblue.100',
+      },
+    },
+    glow: {
+      bg: 'lightblue.50',
+      color: 'white',
+      boxShadow: `0 0 12px rgba(245, 186, 38, .6)`,
+      borderRadius: '20px',
+      padding: '20px 50px',
+      _hover: {
+        bg: 'primary',
+        color: 'lightblue.100',
+        _disabled: {
+          bg: 'lightblue.50',
+          color: 'white',
+        },
+      },
+    },
+    gradient: {
+      color: 'white.50',
+      border: '2px',
+      borderStyle: 'solid',
+      borderColor: 'primary',
+      bgGradient: 'linear(to-r, lightblue.100, lightblue.50)',
+      position: 'relative',
+      transition: 'all .5s ease',
+      _hover: {
+        color: 'lightblue.100',
+        bgGradient: 'linear(to-r, #f0ba00, primary)',
+        borderColor: 'lightblue.100',
+        boxShadow: `0 0 12px rgba(245, 186, 38, .6)`,
+      },
+      _before: {
+        content: '""',
+        display: 'block',
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        height: '120px',
+        width: '120px',
+        borderRadius: 'full',
+        border: '1px',
+        borderColor: 'primary',
+      },
+    },
+    'is-active': {
+      bg: 'primary',
+      border: '1px',
+      borderStyle: 'solid',
+      borderColor: 'primary',
+      color: 'lightblue.100',
+      boxShadow: `0 0 12px rgba(245, 186, 38, .6)`,
+    },
+    'is-active-gradient': {
+      bg: 'primary',
+      border: '5px',
+      borderStyle: 'solid',
+      borderColor: 'lightblue.100',
+      color: 'lightblue.100',
+      bgGradient: 'linear(to-r, #f0ba00, primary)',
+      boxShadow: `0 0 12px rgba(245, 186, 38, .6)`,
+      position: 'relative',
+      _before: {
+        content: '""',
+        display: 'block',
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        height: '120px',
+        width: '120px',
+        borderRadius: 'full',
+        border: '1px',
+        borderColor: 'primary',
+      },
+    },
+  },
+}
+
+export default Button

@@ -6,11 +6,13 @@ type Props = {
   onClick?: () => void;
   variant?: string;
   type?: string;
+  width?: string;
+  height?: string;
   children?: ReactNode;
 };
 
-const Button = ({onClick, variant, type, children}: Props) => (
-  <StyledButton onClick={onClick} variant={variant} type={type}>
+const Button = ({onClick, variant, type, width, height, children}: Props) => (
+  <StyledButton onClick={onClick} variant={variant} type={type} width={width} height={height}>
     {children}
     <ButtonHelper />
   </StyledButton>
@@ -36,7 +38,7 @@ const StyledButton = styled(ButtonUI)`
   z-index: 1;
   /* background: linear-gradient(to right, #1273ea, #1c94f4)!important; */
   background: ${props => props.variant == 'outline' ? "#f7f9fc" : "linear-gradient(to right, #1273ea, #1c94f4)!important"};
-  color: #fff;
+  color: ${props => props.variant == 'outline' ? "#1273ea!important" : "#fff"};
   ${ButtonHelper} {
     background: ${props => props.variant == 'outline' ? "#edf1f7" : "linear-gradient(to right, #5ab0f4, #1273ea)!important"};
   }

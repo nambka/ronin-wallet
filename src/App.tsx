@@ -52,10 +52,9 @@ const Box = styled(MainContainer)`
   background-color: #fff;
   z-index: 1;
   margin-top: 4rem;
-  width: 375px;
+  max-width: 375px;
   height: 600px;
-  max-width: 100%;
-  min-height: calc(100vh- 2.5em - 40px);
+  width: calc(100vw - 40px);
   justify-content: space-between;
   border-radius: 24px;
   box-shadow: 
@@ -63,4 +62,10 @@ const Box = styled(MainContainer)`
     rgb(0 0 0 / 4%) 0px 4px 8px, 
     rgb(0 0 0 / 4%) 0px 16px 24px, 
     rgb(0 0 0 / 1%) 0px 24px 32px;
+
+  @media (max-width: 768px) {
+    margin: 20px;
+    min-height: calc(100vh - 40px);
+    height: calc(100vh - 40px);
+  }
 `;

@@ -54,6 +54,9 @@ const Box = styled.form`
   justify-content: center;
   margin-top: 4rem;
   padding: 20px;
+  background-image: url('/images/bg.svg');
+  background-repeat: no-repeat;
+  background-position: center top;
 `;
 
 const Brand = styled(Text)`

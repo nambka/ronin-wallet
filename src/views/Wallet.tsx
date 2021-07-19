@@ -85,6 +85,9 @@ const MainContainer = styled.div`
 const WWrapper = styled(MainContainer)`
   flex-direction: column;
   padding: 0 20px;
+  background-image: url('/images/bg-wallet.svg');
+  background-repeat: no-repeat;
+  background-position: center top;
 `;
 
 const AssetsContainer = styled(MainContainer)`

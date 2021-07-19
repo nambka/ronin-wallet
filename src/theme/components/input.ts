@@ -2,6 +2,9 @@ const Input = {
   variants: {
     outline: {
       field: {
+        border: '1px',
+        borderStyle: 'solid',
+        borderColor: '#bcd',
         _focus: {
           boxShadow: 'none',
           borderColor: '#1c94f4', //darker blue: #1273ea
@@ -14,7 +17,15 @@ const Input = {
         },
       },
     },
-  },
+    filled: {
+      field: {
+        border: '1px',
+        borderStyle: 'solid',
+        borderColor: '#bcd',
+        cursor: 'pointer',
+      },
+    },
+  }
 }
 
 export default Input

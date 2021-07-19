@@ -1,18 +1,78 @@
-import React, { Suspense, lazy } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-// import logo from './logo.svg';
 import PageLoader from './components/PageLoader'
 import styled from 'styled-components'
 import { ChakraProvider } from "@chakra-ui/react"
 import theme from './theme/theme'
+import axios from 'axios';
 
-// Route-based code splitting
 const Unlock = lazy(() => import('./views/Unlock'))
 const Wallet = lazy(() => import('./views/Wallet'))
 const Send = lazy(() => import('./views/Send'))
 const NotFound = lazy(() => import('./views/NotFound'))
 
-const App: React.FC = () => {
+interface IWallet {
+  id?: number,
+  name: string,
+  address: string,
+  assets: {
+    ticker: string,
+    amount: number,
+    xrate: number,
+    icon: string
+  }[];
+  balance: {
+    localCurrency: string,
+    selectedCurrency: string
+  };
+}
+
+const defaultWallets:IWallet[] = [
+  {
+    id: 0,
+    name: "My Wallet",
+    address: "7300 3777 3888 3334",
+    assets: [{
+      ticker: "USD",
+      amount: 50,
+      xrate: 30000,
+      icon: "images/usd.png"
+    },
+    {
+      ticker: "VND",
+      amount: 10000000,
+      xrate: 1,
+      icon: "images/vnd.png"
+    }],
+    balance: {
+      localCurrency: "23,046,000 VND",
+      selectedCurrency: "1,000 USD"
+    }
+  }
+];
+
+const App: React.FC = () => {  
+  const [wallets, setWallets]: [IWallet[], (wallets: IWallet[]) => void] = useState(defaultWallets);
+  const [loading, setLoading]: [boolean, (loading: boolean) => void] = useState<boolean>(true);
+  const [error, setError]: [string, (error: string) => void] = useState("");
+    
+  useEffect(() => {
+    axios
+      .get<IWallet[]>("https://api.npoint.io/4bb76c68d648b209a4a0")
+      .then(response => {
+        setWallets(response.data);
+        setLoading(false);
+      })
+      .catch(ex => {
+        const err =
+        ex.response.status === 404
+          ? "Resource not found"
+          : "An unexpected error has occurred";
+        setError(err);
+        setLoading(false);
+      });
+  }, []);
+  
   return (
     <Router>
       <ChakraProvider theme={theme}>
@@ -23,10 +83,10 @@ const App: React.FC = () => {
                 <Unlock />
               </Route>
               <Route path="/wallet">
-                <Wallet />
+                <Wallet wallets={wallets}/>
               </Route>
               <Route path="/send">
-                <Send />
+                <Send assets={wallets[0].assets}/>
               </Route>
               {/* Redirect */}
               {/* 404 */}

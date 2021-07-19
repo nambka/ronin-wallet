@@ -2,20 +2,38 @@ import React from 'react';
 import styled from 'styled-components'
 import ButtonT from '../components/ButtonT'
 import Assets from '../components/Assets'
-import { ButtonGroup, Heading, Text } from "@chakra-ui/react"
-import { CopyIcon, StarIcon } from '@chakra-ui/icons';
+import { ButtonGroup, Heading, Text, Image } from "@chakra-ui/react"
+import { CopyIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faCreditCard, faPaperPlane, faRetweet, faUser } from '@fortawesome/free-solid-svg-icons'
 import { useHistory } from 'react-router-dom'
 
-const Wallet: React.FC = () => {
+type Props = {
+  wallets: {
+    id?: number,
+    name: string,
+    address: string,
+    assets: {
+      ticker: string,
+      amount: number,
+      xrate: number,
+      icon: string
+    }[];
+    balance: {
+      localCurrency: string,
+      selectedCurrency: string
+    }
+  }[];
+}
+
+const Wallet: React.FC<Props> = ({wallets}) => {
   const history = useHistory();
   const navigateToDeposit = () => history.push('/deposit');
   const navigateToSend = () => history.push('/send');
   const navigateToSwap = () => history.push('/swap');
-  
+
   return (
-    <Wrapper>
+    <WWrapper>
       <TopBar>
         <SecondaryButton>
           <FontAwesomeIcon icon={faCircle} style={{color:'#1273ea', fontSize:'0.5rem'}}/>
@@ -30,18 +48,18 @@ const Wallet: React.FC = () => {
         <WHeader>
           <Flex>
             <Flex>
-              <Heading as="h6" size="xs">My Wallet</Heading>&nbsp;&nbsp;
-              <Text style={{color:'#8dc9f9', fontSize:'0.9rem'}}>(7300 3777 3888 3334)</Text>
+              <Heading as="h6" size="xs">{wallets[0].name}&nbsp;&nbsp;</Heading>
+              <Text style={{color:'#8dc9f9', fontSize:'0.9rem'}}>({wallets[0].address})</Text>
             </Flex>
             <CopyIcon />
           </Flex>
         </WHeader>
         <WBody>
           <FlexCol>
-            <Heading as="h2" size="xl">1,000 USD</Heading>
-            <Heading as="h5" size="sm" style={{color:'#8dc9f9', marginTop:'10px'}}>23,046,000 VND</Heading>
+            <Heading as="h2" size="xl">{wallets[0].balance.selectedCurrency}</Heading>
+            <Heading as="h5" size="sm" style={{color:'#8dc9f9', marginTop:'10px'}}>{wallets[0].balance.localCurrency}</Heading>
           </FlexCol>
-          <StarIcon w={8} h={8} />
+          <Image boxSize="40px" src='/images/logo-alt.svg' alt='log-alt' />
         </WBody>
       </WSummary>
       <Action>
@@ -50,10 +68,10 @@ const Wallet: React.FC = () => {
         <ButtonT label="Swap" faIcon={faRetweet} onClick={navigateToSwap} disabled/>
       </Action>
       <AssetsContainer>
-        <Heading as="h5" size="sm" style={{marginTop:'10px'}}>Assets</Heading>
-        <Assets />
+        <Heading as="h5" size="sm" style={{marginTop:'10px', marginLeft:'10px'}}>Assets</Heading>
+        <Assets assets={wallets[0].assets}/>
       </AssetsContainer>
-    </Wrapper>
+    </WWrapper>
   )
 }
 
@@ -64,7 +82,7 @@ const MainContainer = styled.div`
   display: flex;
 `;
 
-const Wrapper = styled(MainContainer)`
+const WWrapper = styled(MainContainer)`
   flex-direction: column;
   padding: 0 20px;
 `;
@@ -81,7 +99,7 @@ const TopBar = styled(MainContainer)`
 
 const WSummary = styled(MainContainer)`
   flex-direction: column;
-  padding: 15px 20px 20px;
+  padding: 20px;
   background-image: linear-gradient(to right, #1273ea, #1c94f4);
   color: #fff;
   border-radius: 1rem;
@@ -100,7 +118,7 @@ const WHeader = styled.div`
     background: #8dc9f966;
     width: calc(100% - 40px);
     height: 1px;
-    margin: 10px 0;
+    margin: 12px 0;
   }
 `;
 
@@ -111,7 +129,7 @@ const Flex = styled(MainContainer)`
 
 const WBody = styled(Flex)`
   align-items: flex-end;
-  padding: 20px 0 0;
+  padding: 24px 0 0;
 `;
 
 const FlexCol = styled(MainContainer)`

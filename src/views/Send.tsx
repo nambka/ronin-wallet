@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { useHistory } from 'react-router-dom'
 import Button from '../components/Button'
-import Token from '../components/Assets/Token'
+import Assets from '../components/Assets'
 import { Button as ButtonUI, Image, useDisclosure } from "@chakra-ui/react"
 import { 
   Heading, 
@@ -22,7 +22,16 @@ import {
 import { HamburgerIcon, ChevronLeftIcon } from '@chakra-ui/icons';
 import styled from 'styled-components';
 
-const Send: React.FC = () => {
+type Props = {
+  assets: {
+    ticker: string,
+    amount: number,
+    xrate: number,
+    icon: string
+  }[];
+};
+
+const Send: React.FC<Props> = ({assets}) => {
   const history = useHistory();
   const navigateToWallet = () => history.push('/wallet');
   const { 
@@ -48,7 +57,7 @@ const Send: React.FC = () => {
         <Body>
           <FControl id="from">
             <LabelLeft>From</LabelLeft>
-            <Input variant="filled" type="text" placeholder="My Wallet (7300...3334)" />
+            <Input isReadOnly variant="filled" fontSize="0.9rem" type="text" placeholder="My Wallet (7300...3334)" />
           </FControl>
 
           <FControl id="to">
@@ -109,7 +118,7 @@ const Send: React.FC = () => {
           </ModalHdr>
           <ModalCloseButton />
           <ModalBody>
-            <Token onClick={onCloseAssets}/>
+            <Assets onClick={onCloseAssets} assets={assets}/>
           </ModalBody>
         </ModalContent>
       </Modal>

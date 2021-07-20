@@ -4,7 +4,7 @@ The objective of this challenge is to build a web-based Digital Wallet. This is 
 This Digital Wallet will let you view and send your fund held in multiple currencies.
 
 [![start with why](https://img.shields.io/badge/start%20with-why%3F-brightgreen.svg)](https://github.com/dwyl/repo-badges)
-[![Build Status](https://travis-ci.com/nambka/ronin-wallet.png?branch=master)](https://travis-ci.org/nambka/ronin-wallet)
+[![Build Status](https://travis-ci.com/nambka/ronin-wallet.svg?token=MWMrRAZPt5Qgo8Ub7jMo&branch=master)](https://www.travis-ci.com/nambka/ronin-wallet)
 [![Documentation Status](https://readthedocs.org/projects/ronin-wallet/badge/?version=latest)](https://ronin-wallet.readthedocs.io/en/latest/?badge=latest)
 [![codecov](https://codecov.io/gh/nambka/ronin-wallet/branch/master/graph/badge.svg)](https://codecov.io/gh/nambka/ronin-wallet)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/nambka/ronin-wallet.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/nambka/ronin-wallet/context:javascript)
@@ -15,8 +15,6 @@ This Digital Wallet will let you view and send your fund held in multiple curren
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
 [![Caretaker](https://img.shields.io/badge/caretaker-nambka-blue.svg)](https://github.com/nambka)
 [![Sponsoring](https://img.shields.io/badge/-Buy%20me%20a%20coffee-blue)](https://www.buymeacoffee.com/nambk)
-[![Watch on GitHub](https://img.shields.io/github/watchers/nambka/ronin-wallet.svg?style=social)](https://github.com/nambka/ronin-wallet/watchers)
-[![Star on GitHub](https://img.shields.io/github/stars/nambka/ronin-wallet.svg?style=social)](https://github.com/nambka/ronin-wallet/stargazers)
 
 
 ### Design
@@ -36,7 +34,7 @@ This Digital Wallet will let you view and send your fund held in multiple curren
 - Build a simple API server for the exchange rate, balances, account information provided in the design.
 
 ### Communication
-- Feel free to ask us any questions regarding the challenge.
+- Feel free to ask me any questions regarding the challenge.
 - Any concerns about the design, backend API, or the product requirements should be flagged before you start doing the challenge.
 
 ### Links

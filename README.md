@@ -9,8 +9,6 @@ This Digital Wallet will let you view and send your fund held in multiple curren
 [![codecov](https://codecov.io/gh/nambka/ronin-wallet/branch/master/graph/badge.svg)](https://codecov.io/gh/nambka/ronin-wallet)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/nambka/ronin-wallet.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/nambka/ronin-wallet/context:javascript)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/nambka/ronin-wallet.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/nambka/ronin-wallet/alerts/)
-[![Dependency Status](https://img.shields.io/david/nambka/ronin-wallet.svg)](https://david-dm.org/nambka/ronin-wallet.svg)
-[![Dev Dependency Status](https://david-dm.org/nambka/ronin-wallet/dev-status.svg)](https://david-dm.org/nambka/ronin-wallet/?type=dev)
 [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg)](https://github.com/nambka/prime/blob/master/CODE_OF_CONDUCT.md)
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
 [![Caretaker](https://img.shields.io/badge/caretaker-nambka-blue.svg)](https://github.com/nambka)

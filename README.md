@@ -19,8 +19,8 @@ This Digital Wallet will let you view and send your fund held in multiple curren
 [![Star on GitHub](https://img.shields.io/github/stars/nambka/ronin-wallet.svg?style=social)](https://github.com/nambka/ronin-wallet/stargazers)
 
 
-#### Design
-- The design can be found in link beneath.
+### Design
+- The design can be found in [Links](#links).
 - Explore the design in present mode to help you understand the connection between screens.
 - Feel free to implement the hover, active state of any interactive component (button, input).
 
